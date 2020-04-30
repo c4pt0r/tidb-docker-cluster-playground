@@ -9,8 +9,8 @@ containers.
 To start run
 
 ````
-    ./up.sh
-    docker exec -it tidb-cluster-control bash
+./up.sh
+docker exec -it tidb-cluster-control bash
 ````
 
 Run `./up.sh --help` for more info.
