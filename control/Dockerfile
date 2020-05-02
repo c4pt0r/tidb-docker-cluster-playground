@@ -17,11 +17,14 @@ RUN sed -i 's/deb.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list
          default-mysql-client \
 	     vim pssh
 
+RUN  curl --proto '=https' --tlsv1.2 -sSf https://tiup-mirrors.pingcap.com/install.sh | sh 
+
 ADD ./bashrc /root/.bashrc
+ADD ./topology.yml /tiup-cluster-example/topology.yml
 ADD ./init.sh /init.sh
 RUN dos2unix /init.sh /root/.bashrc \
     && chmod +x /init.sh
 
-WORKDIR /
+WORKDIR /tiup-cluster-example
 
 CMD /init.sh

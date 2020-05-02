@@ -18,6 +18,7 @@ services:
     privileged: true
     ports:
       - "8080"
+      - "2379"
     networks:
        tiops:
          ipv4_address: 172.19.0.100

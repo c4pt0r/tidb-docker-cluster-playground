@@ -2,7 +2,7 @@ eval $(ssh-agent) &> /dev/null
 ssh-add /root/.ssh/id_rsa &> /dev/null
 
 export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:/tidb-cluster/bin
+export PATH=/root/.tiup/bin:$PATH
 
 if [ -d "/mirrors" ]; then
 	export tidb_MIRRORS=/mirrors
@@ -23,9 +23,10 @@ This container runs the tidb-cluster tests in sub-containers.
 
 You are currently in the base dir of the git repo for tidb-cluster.
 
-Run the following in your terminal, and follow the instructions:
+try: 
 
-curl --proto '=https' --tlsv1.2 -sSf https://tiup-mirrors.pingcap.com/install.sh | sh 
+tiup cluster deploy demo v4.0.0-rc topology.yml
+
 
 EOF
 
